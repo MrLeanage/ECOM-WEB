@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+    <!--Servlets-->
+    
+    <servlet>
+        <servlet-name>OrderViewControllerServlet</servlet-name>
+        <servlet-class>com.devzone.controller.OrderViewControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductViewControllerServlet1</servlet-name>
+        <servlet-class>com.devzone.controller.ProductViewControllerServlet1</servlet-class>
+    </servlet>
+    <!--Servlet Mapping -->
+    
+    <servlet-mapping>
+        <servlet-name>ProductViewControllerServlet1</servlet-name>
+        <url-pattern>/Home</url-pattern>
+        <url-pattern>/Products</url-pattern>
+        <url-pattern>/Product</url-pattern>
+    </servlet-mapping>
+    <!--Welcome Files-->
+    <welcome-file-list>
+        <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+   
+</web-app>
