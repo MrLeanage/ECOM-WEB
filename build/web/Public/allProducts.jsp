@@ -89,7 +89,7 @@
                 %>
                 <!-- Single Catagory -->
                 <div class="single-products-catagory clearfix">
-                    <a href="${pageContext.request.contextPath}/Product">
+                    <a href="${pageContext.request.contextPath}/Product?itemNo=<%=products.getpID()%>">
                         <img src="${pageContext.request.contextPath}/Public/img/bg-img/1.jpg" alt="">
                         <!-- Hover Content -->
                         <div class="hover-content">

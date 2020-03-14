@@ -48,7 +48,7 @@ public class ProductService {
         return productsData;
     }
 
-    public Product selectProduct(String ID) {
+    public Product specificProduct(String ID) {
         Product productData = new Product();
         PreparedStatement psProduct = null;
         ResultSet rsLoadProduct = null;

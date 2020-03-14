@@ -4,6 +4,7 @@
     Author     : dulshan
 --%>
 
+<%@page import="com.devzone.model.Product"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -128,14 +129,18 @@
                             </div>
                         </div>
                     </div>
+                    <%
+                    Product specificProduct = (Product)request.getAttribute("specificProduct");
+                    {
+                    %>
                     <div class="col-12 col-lg-5">
                         <div class="single_product_desc">
                             <!-- Product Meta Data -->
                             <div class="product-meta-data">
                                 <div class="line"></div>
-                                <p class="product-price">$180</p>
+                                <p class="product-price">Rs <%=specificProduct.getpPrice()%>0</p>
                                 <a href="${pageContext.request.contextPath}/Public/product-details.html">
-                                    <h6>White Modern Chair</h6>
+                                    <h6><%=specificProduct.getpName()%></h6>
                                 </a>
                                 <!-- Ratings & Review -->
                                 <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
@@ -151,11 +156,31 @@
                                     </div>
                                 </div>
                                 <!-- Avaiable -->
-                                <p class="avaibility"><i class="fa fa-circle"></i> In Stock</p>
+                                <p class="avaibility"><i class="fa fa-circle"></i> <%=specificProduct.getpAvailability()%></p>
                             </div>
 
                             <div class="short_overview my-5">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?</p>
+                                <p><%=specificProduct.getpDescription()%></p>
+                            </div>
+                            <div class="short_overview my-5">
+                                <table>
+                                        <td style="padding:5px;">Dimension  </td>
+                                        <td>: <%=specificProduct.getpDimention()%></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:5px;">Weight </td>
+                                        <td>: <%=specificProduct.getpWeight()%></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:5px;">Available Color  </td>
+                                        <td>: <%=specificProduct.getpColor()%></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:5px;">Material </td>
+                                        <td>: <%=specificProduct.getpMaterial()%></td>
+                                    </tr>
+                                </table>
+                                
                             </div>
 
                             <!-- Add to Cart Form -->
@@ -173,6 +198,8 @@
 
                         </div>
                     </div>
+                    <% }
+                    %>
                 </div>
             </div>
         </div>
