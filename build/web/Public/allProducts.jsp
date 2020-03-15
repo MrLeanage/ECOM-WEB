@@ -21,7 +21,7 @@
     <title>PYRAMID 3D Solutions | All Products </title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="${pageContext.request.contextPath}/Public/img/core-img/favicon.ico">
+     <link rel="icon" href="${pageContext.request.contextPath}/Public/img/core-img/favicon.png">
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Public/css/core-style.css">
@@ -60,10 +60,10 @@
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
-                    <li class="active"><a href="${pageContext.request.contextPath}/Home">Home</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Products">Shop Now</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Public/trackOrder.jsp">Track Your Order</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                   <li><a href="${pageContext.request.contextPath}/Home">Home</a></li>
+                    <li class="active"><a href="${pageContext.request.contextPath}/Products">Shop Now</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Order/TrackLogin">Track Your Order</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Public/contact.html">Contact Us</a></li>
                 </ul>
             </nav>
            
@@ -129,11 +129,9 @@
                 <div class="col-12 col-lg-4">
                 <div class="single_widget_area">
                     <!-- Logo -->
-                    <div class="footer-logo mr-50">
-                        <a href="../Public/index.jsp"><img src="${pageContext.request.contextPath}/Public/img/core-img/logo.png" alt=""></a>
-                    </div>
+                    
                     <!-- Copywrite Text -->
-                    <p class="copywrite">PYRAMID 3D SOLUTIONS &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved.<br>Powered by <i class="fa fa-circle" aria-hidden="true"></i> by <a href="https://devzone.lk/index-1" target="_blank">DevZone LK</a></p>
+                    <p class="copywrite">PYRAMID 3D SOLUTIONS &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved.<br>Powered by <i class="fa fa-circle" aria-hidden="true"></i> by <a href="https://devzone.lk" target="_blank">DevZone LK</a></p>
                 </div>
             </div>
                 <!-- Single Widget Area -->
@@ -144,21 +142,19 @@
                             <nav class="navbar navbar-expand-lg justify-content-end">
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                                 <div class="collapse navbar-collapse" id="footerNavContent">
-                                    <ul class="navbar-nav ml-auto">
+                                   <ul class="navbar-nav ml-auto">
+                                        
+                                        <li class="nav-item ">
+                                            <a class="nav-link" href="${pageContext.request.contextPath}/Home">Home</a>
+                                        </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="index.html">Home</a>
+                                            <a class="nav-link" href="${pageContext.request.contextPath}/Products">Shop</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="shop.html">Shop</a>
+                                            <a class="nav-link" href="${pageContext.request.contextPath}/Order/TrackLogin">Track Your Order</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="product-details.html">Product</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="cart.html">Cart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="checkout.html">Checkout</a>
+                                            <a class="nav-link" href="${pageContext.request.contextPath}/Public/contact.html">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>

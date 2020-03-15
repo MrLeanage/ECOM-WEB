@@ -57,8 +57,10 @@ public class ProductService {
             psProduct = conn.prepareStatement(ProductQueries.SELECT_DATA_QUERY);
             psProduct.setInt(1, UtilityMethod.seperateID(ID));
             rsLoadProduct = psProduct.executeQuery();
+            
             while (rsLoadProduct.next()) {
-                productData.setpID(rsLoadProduct.getString(1));
+                 
+                productData.setpID(UtilityMethod.addPrefix("P", rsLoadProduct.getString(1)));
                 productData.setpName(rsLoadProduct.getString(2));
                 productData.setpDescription(rsLoadProduct.getString(3));
                 productData.setpDimention(rsLoadProduct.getString(4));
@@ -173,59 +175,4 @@ public class ProductService {
         }
         return resultVal;
     }
-    /*
-    public SortedList<Product> searchTable(String searchField){
-
-        //Retreiving all data from database
-        ObservableList<Product> productsData = null;
-
-        try {
-            Connection conn = DBConnection.Connect();
-            productsData = FXCollections.observableArrayList();
-            ResultSet rsLoadProduct = conn.createStatement().executeQuery(ProductQueries.LOAD_DATA_QUERY);
-
-            while (rsLoadProduct.next()) {
-                productsData.add(new Product(rsLoadProduct.getString(1),rsLoadProduct.getString(2),rsLoadProduct.getString(3),rsLoadProduct.getString(4),rsLoadProduct.getString(5),rsLoadProduct.getString(6),rsLoadProduct.getString(7),rsLoadProduct.getString(8),rsLoadProduct.getString(9)));
-            }
-        } catch (SQLException ex) {
-
-        }
-        //Wrap the ObservableList in a filtered List (initially display all data)
-        FilteredList<Product> filteredData = new FilteredList<>(productsData, b -> true);
-
-        searchField.Listener((observable,oldValue,newValue) ->{
-            filteredData.setPredicate(allowance -> {
-                //if filter text is empty display all data
-                if(newValue == null){
-                    return true;
-                }
-                //comparing search text with table columns one by one
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if(allowance.getaID().toLowerCase().indexOf(lowerCaseFilter) != -1){
-                    //return if filter matches data
-                    return true;
-                }else if(allowance.getaTitle().toLowerCase().indexOf(lowerCaseFilter) != -1){
-                    //return if filter matches data
-                    return true;
-                }else if(allowance.getaDescription().toLowerCase().indexOf(lowerCaseFilter) != -1){
-                    //return if filter matches data
-                    return true;
-                }else if(allowance.getaType().toLowerCase().indexOf(lowerCaseFilter) !=-1){
-                    //return if filter matches data
-                    return true;
-                }else if(String.valueOf(allowance.getaValue()).toLowerCase().indexOf(lowerCaseFilter) !=-1){
-                    //return if filter matches data
-                    return true;
-                }else{
-                    //have no matchings
-                    return false;
-                }
-            });
-        });
-        //wrapping the FilteredList in a SortedList
-        SortedList<Allowance> sortedData = new SortedList<>(filteredData);
-        return sortedData;
-    }
-     */
 }

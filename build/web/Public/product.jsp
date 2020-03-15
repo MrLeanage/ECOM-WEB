@@ -60,10 +60,10 @@
             <nav class="amado-nav">
             <nav class="amado-nav">
                 <ul>
-                    <li class="active"><a href="${pageContext.request.contextPath}/Home">Home</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Products">Shop Now</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Public/trackOrder.jsp">Track Your Order</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Home">Home</a></li>
+                    <li class="active"><a href="${pageContext.request.contextPath}/Products">Shop Now</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Order/TrackLogin">Track Your Order</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Public/contact.html">Contact Us</a></li>
                 </ul>
             </nav>
            
@@ -152,7 +152,7 @@
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                     </div>
                                     <div class="review">
-                                        <a href="#">Write A Review</a>
+                                        <a href="#">Write A Review<p>(Currently Unavailable for this Item)</p></a>
                                     </div>
                                 </div>
                                 <!-- Avaiable -->
@@ -184,12 +184,14 @@
                             </div>
 
                             <!-- Add to Cart Form -->
-                            <form class="cart clearfix" method="post">
+                            <form class="cart clearfix" action="<%=request.getContextPath()%>/Order/ProcessToCheckout?ItemNo=<%=specificProduct.getpID()%>" method="post">
                                 <div class="cart-btn d-flex mb-50">
                                     <p>Qty</p>
                                     <div class="quantity">
                                         <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
-                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="1">
+                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="Quantity" value="1">
+                                        <input type="hidden" name="Price" value="<%=specificProduct.getpPrice()%>">
+                                        <input type="hidden" name="Name" value="<%=specificProduct.getpName()%>">
                                         <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
                                     </div>
                                 </div>
@@ -217,13 +219,10 @@
                 <div class="col-12 col-lg-4">
                     <div class="single_widget_area">
                         <!-- Logo -->
-                        <div class="footer-logo mr-50">
-                            <a href="${pageContext.request.contextPath}/Public/index.html"><img src="${pageContext.request.contextPath}/Public/img/core-img/logo.png" alt=""></a>
-                        </div>
+                        
                         <!-- Copywrite Text -->
-                        <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        <p class="copywrite">PYRAMID 3D SOLUTIONS &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved.<br>Powered by <i class="fa fa-circle" aria-hidden="true"></i> by <a href="https://devzone.lk" target="_blank">DevZone LK</a></p>
+
                     </div>
                 </div>
                 <!-- Single Widget Area -->
@@ -235,20 +234,18 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                                 <div class="collapse navbar-collapse" id="footerNavContent">
                                     <ul class="navbar-nav ml-auto">
+                                        
+                                        <li class="nav-item ">
+                                            <a class="nav-link" href="${pageContext.request.contextPath}/Home">Home</a>
+                                        </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="${pageContext.request.contextPath}/Public/index.html">Home</a>
+                                            <a class="nav-link" href="${pageContext.request.contextPath}/Products">Shop</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="${pageContext.request.contextPath}/Public/shop.html">Shop</a>
+                                            <a class="nav-link" href="${pageContext.request.contextPath}/Order/TrackLogin">Track Your Order</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="${pageContext.request.contextPath}/Public/product-details.html">Product</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="${pageContext.request.contextPath}/Public/cart.html">Cart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="${pageContext.request.contextPath}/Public/checkout.html">Checkout</a>
+                                            <a class="nav-link" href="${pageContext.request.contextPath}/Public/contact.html">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>

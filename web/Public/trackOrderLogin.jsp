@@ -17,10 +17,10 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>PYRAMID 3D Solutions | Order Checkout</title>
+    <title>PYRAMID 3D Solutions | Track Order</title>
 
     <!-- Favicon  -->
-     <link rel="icon" href="${pageContext.request.contextPath}/Public/img/core-img/favicon.png">
+    <link rel="icon" href="${pageContext.request.contextPath}/Public/img/core-img/favicon.png">
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Public/css/core-style.css">
@@ -59,10 +59,12 @@
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
+                    
                     <li><a href="${pageContext.request.contextPath}/Home">Home</a></li>
-                    <li class="active"><a href="${pageContext.request.contextPath}/Products">Shop Now</a></li>
-                    <li><a href="${pageContext.request.contextPath}/Order/TrackLogin">Track Your Order</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Products">Shop Now</a></li>
+                    <li class="active"><a href="${pageContext.request.contextPath}/Order/TrackLogin">Track Your Order</a></li>
                     <li><a href="${pageContext.request.contextPath}/Public/contact.html">Contact Us</a></li>
+                
                 </ul>
             </nav>
             
@@ -80,64 +82,42 @@
         <!-- Header Area End -->
 
         <div class="cart-table-area section-padding-100">
-            <div class="container-fluid">
+            <div class="container-fluid border border-info">
                 <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <div class="checkout_details_area mt-50 clearfix">
+                    <div class="col-12 col-lg-9 " >
+                        <div class="checkout_details_area mt-50 clearfix ">
 
                             <div class="cart-title">
-                                <h2>Checkout</h2>
+                                <h2>Track Your Order</h2>
+                                <h5>Please Enter Your Order Tracking Information Bellow</h5>
                             </div>
-                            <%
-                                Order order = (Order)request.getAttribute("orderInfo");
-                               {
-                            %>
-                            <form action="<%=request.getContextPath()%>/Order" method="post">
-                                <input type="hidden" name="ItemNo" value="<%=order.getoPID()%>">
-                                <input type="hidden" name="Price" value="<%=order.getoStatus()%>">
-                                <input type="hidden" name="AdAmount" value="<%=order.getoAdAmount()%>">
-                                <input type="hidden" name="Quantity" value="<%=order.getoQuantity()%>">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <input type="text" class="form-control" name="Name" id="name" value="" placeholder="Full Name" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <input type="text" class="form-control" name="NIC" id="nic" value="" placeholder="NIC No" required>
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        <input type="text" class="form-control" name="Phone" id="phone" placeholder="Phone Number" value="">
-                                    </div>
-                                    <div class="payment-method">
-                                        <!-- Cash on delivery -->
-                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                            <input type="checkbox" class="custom-control-input" id="cod" required>
-                                            <label class="custom-control-label" for="cod">Agree Terms & Conditions</label>
-                                        </div>
-                                    </div>
-                                    <div class="cart-btn mt-100">
-                                        <button type="submit" class="btn amado-btn">Order This Item</button>
-                                    </div>
+                            <form class="form-horizontal" action="<%=request.getContextPath()%>/Order/TrackOrder">
+                                <div class="form-group">
+                                  <label class="control-label col-sm-4" for="OID">Your Order ID:</label>
+                                  <div class="col-sm-10 ">
+                                    <input type="text" class="form-control border border-primary" id="OID" placeholder="Order ID" name="OID">
+                                  </div>
                                 </div>
-                            </form>
+                                <div class="form-group">
+                                  <label class="control-label col-sm-4" for="TCode">Your Order Tracking Code:</label>
+                                  <div class="col-sm-10">          
+                                    <input type="text" class="form-control border border-primary" id="TCode" placeholder="Tracking Code" name="TCode">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                    
+                                    <p class="text-danger" ${uErrorMsg}>Invalid Order ID or Tracking Code</p>
+                                  
+                                </div>
+                                <div class="form-group">        
+                                  <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-success">Track Now</button>
+                                  </div>
+                                </div>
+                             </form>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-4">
-                        <div class="cart-summary">
-                            <h5>Cart Total</h5>
-                            
-                            <ul class="summary-table">
-                                <li><span>Item ID:</span> <span><%=order.getoPID()%></span></li>
-                                <li><span>Item Name:</span> <span><%=order.getoCName()%></span></li>
-                                <li><span>Price of a Unit:</span> <span>Rs <%=order.getoPrice()%>0</span></li>
-                                <li><span>Total Quantity:</span> <span><%=order.getoQuantity()%></span></li>
-                                <li><span>Subtotal:</span> <span>Rs <%=order.getoStatus()%>0</span></li>
-                                <li><span>Advance Pay to proceed:</span> <span>Rs <%=order.getoAdAmount()%>0</span></li>
-                            </ul>
-                            <% }
-                            %>
-                            
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -154,7 +134,7 @@
                 <div class="col-12 col-lg-4">
                     <div class="single_widget_area">
                         <!-- Logo -->
-                        
+                       
                         <!-- Copywrite Text -->
                         <p class="copywrite">PYRAMID 3D SOLUTIONS &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved.<br>Powered by <i class="fa fa-circle" aria-hidden="true"></i> by <a href="https://devzone.lk" target="_blank">DevZone LK</a></p>
 
@@ -173,10 +153,10 @@
                                         <li class="nav-item ">
                                             <a class="nav-link" href="${pageContext.request.contextPath}/Home">Home</a>
                                         </li>
-                                        <li class="nav-item active">
+                                        <li class="nav-item ">
                                             <a class="nav-link" href="${pageContext.request.contextPath}/Products">Shop</a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item active">
                                             <a class="nav-link" href="${pageContext.request.contextPath}/Order/TrackLogin">Track Your Order</a>
                                         </li>
                                         <li class="nav-item">

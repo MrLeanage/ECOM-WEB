@@ -10,6 +10,7 @@ import org.apache.commons.io.IOUtils;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.Random;
 
 public class UtilityMethod {
     public static String addPrefix(String prefix, String id){
@@ -102,6 +103,18 @@ public class UtilityMethod {
         ImageIO.write(bImage,"jpg", outputStream);
         InputStream fileInputStream = new ByteArrayInputStream(outputStream.toByteArray());
         return fileInputStream;
+    }
+    public static String getSaltString() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 7) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
     }
 
 }

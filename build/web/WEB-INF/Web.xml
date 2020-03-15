@@ -3,8 +3,8 @@
     <!--Servlets-->
     
     <servlet>
-        <servlet-name>OrderViewControllerServlet</servlet-name>
-        <servlet-class>com.devzone.controller.OrderViewControllerServlet</servlet-class>
+        <servlet-name>OrderControllerServlet</servlet-name>
+        <servlet-class>com.devzone.controller.OrderControllerServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProductViewControllerServlet1</servlet-name>
@@ -17,6 +17,14 @@
         <url-pattern>/Home</url-pattern>
         <url-pattern>/Products</url-pattern>
         <url-pattern>/Product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderControllerServlet</servlet-name>
+        <url-pattern>/Order</url-pattern>
+        <url-pattern>/Order/ProcessToCheckout</url-pattern>
+        <url-pattern>/Order/Check</url-pattern>
+        <url-pattern>/Order/TrackOrder</url-pattern>
+        <url-pattern>/Order/TrackLogin</url-pattern>
     </servlet-mapping>
     <!--Welcome Files-->
     <welcome-file-list>

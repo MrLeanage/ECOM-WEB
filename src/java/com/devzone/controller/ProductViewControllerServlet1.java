@@ -141,7 +141,6 @@ public class ProductViewControllerServlet1 extends HttpServlet {
     }
  private void loadSpecificProduct(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Product specificProduct = new Product();
-        log("id no :"+request.getParameter("itemNo"));
         ProductService productService = new ProductService();
         specificProduct = productService.specificProduct(request.getParameter("itemNo"));
         try {
