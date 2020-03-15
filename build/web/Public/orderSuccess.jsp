@@ -40,7 +40,7 @@
         <div class="mobile-nav">
             <!-- Navbar Brand -->
             <div class="amado-navbar-brand">
-                <a href="index.html"><img src="${pageContext.request.contextPath}/Public/img/core-img/logo.png" alt=""></a>
+                <a href="${pageContext.request.contextPath}/Home"><img src="${pageContext.request.contextPath}/Public/img/core-img/logo.png" alt=""></a>
             </div>
             <!-- Navbar Toggler -->
             <div class="amado-navbar-toggler">
@@ -56,7 +56,7 @@
             </div>
             <!-- Logo -->
             <div class="logo">
-                <a href="index.html"><img src="${pageContext.request.contextPath}/Public/img/core-img/logo.png" alt=""></a>
+                <a href="${pageContext.request.contextPath}/Home"><img src="${pageContext.request.contextPath}/Public/img/core-img/logo.png" alt=""></a>
             </div>
             <!-- Amado Nav -->
             <nav class="amado-nav">
@@ -75,7 +75,7 @@
             <div class="social-info d-flex justify-content-between">
                 <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/112160797011201/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             </div>
         </header>
